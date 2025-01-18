@@ -1,2 +1,2 @@
 const dbName= "chitChat";
-export dbName;
+export {dbName};

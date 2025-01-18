@@ -10,15 +10,14 @@ const userSchema= new Schema({
 
 },{timestamps:true});
 
-const User= mongoose.model("user",userSchema);
-export {User};
+
 
 //hashing the paassword before saving 
 
-userSchema.pre("save",async(next)=>{
-            if(!this.isModified("password")) return next();
-           this.password= await bcrypt.hash(this.password,10);
-           next();
+userSchema.pre('save', async function (next) {
+    if (!this.isModified('password')) return next();
+    this.password = await bcrypt.hash(this.password, 10);
+    next();
 });
 
 //checking for correct password
@@ -26,3 +25,6 @@ userSchema.pre("save",async(next)=>{
            const isMatch=  await bcrypt.compare(enteredPassword,this.password);
            return isMatch;
  }
+
+ const User= mongoose.model("user",userSchema);
+export {User};

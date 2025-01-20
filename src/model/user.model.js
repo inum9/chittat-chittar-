@@ -17,4 +17,4 @@ userSchema.methods.isCorrect= async function(enteredPassword){
                 return await bcrypt.compare(enteredPassword,this.password);
 }
 
-export const User= mongoose.model("user",userSchema);
+export const User= mongoose.model("User",userSchema);

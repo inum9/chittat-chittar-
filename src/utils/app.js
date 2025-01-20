@@ -44,4 +44,4 @@ app.use("/api/v1/user",root);
 //protected
 
 
-export {app};
+export {server};
